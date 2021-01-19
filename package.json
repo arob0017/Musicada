@@ -9,7 +9,7 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "name": "Project3",
+  "name": "projectthree",
   "description": "",
   "version": "1.0.0",
   "main": "server.js",
@@ -21,9 +21,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/arob0017/Project3/issues"
+    "url": "https://github.com/arob0017/ProjectThree/issues"
   },
-  "homepage": "https://github.com/arob0017/Project3#readme",
+  "homepage": "https://github.com/arob0017/ProjectThree#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "axios": "^0.21.1",
