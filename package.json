@@ -25,9 +25,21 @@
   },
   "homepage": "https://github.com/arob0017/Project3#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
     "env": "^0.0.2",
     "express": "^4.17.1",
-    "mongoose": "^5.11.11"
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.11",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
