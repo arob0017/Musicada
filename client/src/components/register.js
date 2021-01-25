@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, FormControl, TextField, Typography } from '@material-ui/core';
+import { Button, Card, CardActionArea, CardActions, CardContent, Container, TextField, Typography } from '@material-ui/core';
 import 'fontsource-roboto';
 
 import API from "../utils/API";
-// const classes = makeStyles({
-//     root: {
-//         maxWidth: 345,
-//     },
-// });
 
 class Register extends Component {
     constructor(props) {
@@ -53,7 +47,7 @@ class Register extends Component {
         return (
             <Container>
 
-                <Link to="/" className="btn-flat waves-effect">
+                <Link to="/">
                     <i className="material-icons left">keyboard_backspace</i> Back to home
                 </Link>
 
