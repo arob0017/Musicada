@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Container } from '@material-ui/core/';
+
+
 class Login extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             email: "",
             password: "",
@@ -19,11 +22,12 @@ class Login extends Component {
             password: this.state.password
         };
         console.log(userData);
+        this.props.login(userData);
     };
     render() {
         const { errors } = this.state;
         return (
-            <div className="container">
+            <Container maxWidth="sm">
                 <div style={{ marginTop: "4rem" }} className="row">
                     <div className="col s8 offset-s2">
                         <Link to="/" className="btn-flat waves-effect">
@@ -74,7 +78,7 @@ class Login extends Component {
                         </form>
                     </div>
                 </div>
-            </div>
+            </Container>
         );
     }
 }
