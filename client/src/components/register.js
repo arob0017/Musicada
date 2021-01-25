@@ -96,7 +96,7 @@ class Register extends Component {
                             </CardContent>
                         </CardActionArea>
                         <CardActions>
-                            <Button type="submit" variant="contained" color="primary"> Sign up</Button>
+                            <Button type="submit" variant="contained" color="primary" className="themeColor"> Sign up</Button>
                             <Typography component="p">Already have an account? <Link to="/">Log in</Link></Typography>
                         </CardActions>
                     </form>

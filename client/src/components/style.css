@@ -8,3 +8,8 @@ footer {
 .PrivateTabIndicator-root-10 {
     height: 5px !important;
 }
+
+/* Primary Theme Colour */
+.MuiAppBar-colorPrimary, .themeColor {
+    background-color: #8540d0 !important;
+}

@@ -58,7 +58,7 @@ class Login extends Component {
                             </CardContent>
                         </CardActionArea>
                         <CardActions>
-                            <Button type="submit" variant="contained" color="primary">Login</Button>
+                            <Button type="submit" variant="contained" color="primary" className="themeColor">Login</Button>
                             <Typography component="p"> Don't have an account? <Link to="/register">Register</Link></Typography>
                         </CardActions>
                     </form>
