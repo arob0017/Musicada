@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, CardActionArea, CardActions, CardContent, Container, TextField, Typography } from '@material-ui/core';
 import 'fontsource-roboto';
+import API from "../utils/API"
+
 
 
 class Login extends Component {
@@ -22,9 +24,16 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         };
-        console.log(userData);
-        this.props.login(userData);
+        API.login(userData).then((res) => {
+            console.log(res);
+            // do the same as with the registration component 
+            // withRouter and if the login is successful, redirect to "/"
+            this.setState({
+                user: res.data
+            })
+        })
     };
+
     render() {
         const { errors } = this.state;
         return (

@@ -52,7 +52,7 @@ function a11yProps(index) {
 }
 
 
-export default function NavBum() {
+export default function NavBottom() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {

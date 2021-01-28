@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
+import { React, useState, useEffect } from 'react';
+import axios from 'axios';
+import { useUserContext } from '../components/UserContext'
+
+function ProfileTab() {
+    const { user } = useUserContext()
+    return (
+        <div>
+
+            <div key={user.email}>
+                <p>hello</p>
+                <p>{user.name}</p>
+                <p>{user.email}</p>
+            </div>
 
 
-
-class ProfileTab extends Component {
-    render() {
-
-        return (
-            <h1>Profile tab</h1>
-        );
-    }
+        </div>
+    )
 }
+
 export default ProfileTab;
+
 
