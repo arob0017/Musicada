@@ -11,6 +11,11 @@ function ProfileTab() {
                 <p>hello</p>
                 <p>{user.name}</p>
                 <p>{user.email}</p>
+                <p>{user.DOB}</p>
+                <p>{user.instrumentMain}</p>
+                <p>{user.otherInstrument}</p>
+                <p>{user.genre}</p>
+
             </div>
 
 

@@ -17,7 +17,6 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-
     instrumentMain: {
         type: String,
         lowercase: true,

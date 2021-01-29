@@ -28,7 +28,11 @@ router.post("/register", (req, res) => {
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.password
+                DOB: req.body.DOB,
+                password: req.body.password,
+                instrumentMain: req.body.instrumentMain,
+                otherInstrument: req.body.otherInstrument,
+                genre: req.body.genre
             });
             // Hash password before saving in database
             bcrypt.genSalt(10, (err, salt) => {
@@ -37,7 +41,7 @@ router.post("/register", (req, res) => {
                     newUser.password = hash;
                     newUser
                         .save()
-                        .then(({ name, id, email }) => res.json({ name, id, email }))
+                        .then(({ name, id, email, DOB, instrumentMain, otherInstrument, genre }) => res.json({ name, id, email, DOB, instrumentMain, otherInstrument, genre }))
                         .catch(err => console.log(err));
                 });
             });
