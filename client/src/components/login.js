@@ -20,7 +20,11 @@ const Login = withRouter((props) => {
         e.preventDefault();
         const userData = {
             email: state.email,
-            password: state.password
+            password: state.password,
+            DOB: state.DOB,
+            instrumentMain: state.instrumentMain,
+            otherInstrument: state.otherInstrument,
+            genre: state.genre,
         };
         API.login(userData).then((res) => {
             console.log(res);

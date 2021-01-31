@@ -90,6 +90,7 @@ export default function NavBottom() {
             <TabPanel value={value} index={3}>
                 <ProfileTab />
             </TabPanel>
+            <div className="push"></div>
         </div>
     );
 }

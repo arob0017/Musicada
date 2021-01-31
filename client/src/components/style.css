@@ -1,9 +1,13 @@
+/* Bottom navigation */
 footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+.push {
+    height: 200px;
 }
 .PrivateTabIndicator-root-10 {
     height: 5px !important;
@@ -12,4 +16,17 @@ footer {
 /* Primary Theme Colour */
 .MuiAppBar-colorPrimary, .themeColor {
     background-color: #8540d0 !important;
+}
+
+/* Profile Page */
+.content {
+    flex: '1 0 auto';
+}
+.details {
+    display: 'flex';
+    flex-direction: 'column';
+}
+.root {
+    display: 'flex';
+    width: 1000px;
 }

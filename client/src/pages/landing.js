@@ -1,6 +1,7 @@
 import React from "react";
 import NavBottom from "../components/bottomNav"
-import ButtonCmp from "../components/button";
+
+import '../components/style.css'
 
 function Landing() {
     return (
