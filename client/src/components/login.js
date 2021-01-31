@@ -31,7 +31,7 @@ const Login = withRouter((props) => {
             // do the same as with the registration component 
             // withRouter and if the login is successful, redirect to "/"
             setUser(res.data)
-            props.history.push("/")
+            // props.history.push("/")
         })
     };
 
@@ -40,7 +40,7 @@ const Login = withRouter((props) => {
     return (
         <Container maxWidth="sm">
             {/* <Typography variant="h2" align="center">Login</Typography> */}
-            <Card elevation={3} clasName="notUserCard">
+            <Card elevation={3} className="notUserCard">
                 <form noValidate onSubmit={onSubmit}>
                     <CardActionArea>
                         <CardContent>

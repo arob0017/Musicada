@@ -7,7 +7,22 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User model
-const User = require("../../models/User");
+const db = require("../../models");
+const usersController = require("../../controllers/usersController");
+
+
+// Matches with "/api/user"
+router.route("/")
+    .get(usersController.findAll)
+    .post(usersController.create);
+
+// Matches with "/api/user/:id"
+router
+    .route("/:id")
+    .get(usersController.findById)
+    .put(usersController.update)
+    .delete(usersController.remove);
+
 
 // @route POST api/users/register
 // @desc Register user
@@ -21,11 +36,11 @@ router.post("/register", (req, res) => {
         return res.status(400).json(errors);
     }
 
-    User.findOne({ email: req.body.email }).then(user => {
+    db.User.findOne({ email: req.body.email }).then(user => {
         if (user) {
             return res.status(400).json({ email: "Email already exists" });
         } else {
-            const newUser = new User({
+            const newUser = new db.User({
                 name: req.body.name,
                 email: req.body.email,
                 DOB: req.body.DOB,
@@ -65,7 +80,7 @@ router.post("/login", (req, res) => {
     const password = req.body.password;
 
     // Find user by email
-    User.findOne({ email }).then(user => {
+    db.User.findOne({ email }).then(user => {
         // Check if user exists
         if (!user) {
             return res.status(404).json({ emailnotfound: "Email not found" });
@@ -75,24 +90,26 @@ router.post("/login", (req, res) => {
             if (isMatch) {
                 // User matched
                 // Create JWT Payload
-                const payload = {
-                    id: user.id,
-                    name: user.name
-                };
+                // const payload = {
+                //     id: user.id,
+                //     name: user.name
+                // };
                 // Sign token
-                jwt.sign(
-                    payload,
-                    keys.secretOrKey,
-                    {
-                        expiresIn: 31556926 // 1 year in seconds
-                    },
-                    (err, token) => {
-                        res.json({
-                            success: true,
-                            token: "Bearer " + token
-                        });
-                    }
-                );
+                // jwt.sign(
+                //     payload,
+                //     keys.secretOrKey,
+                //     {
+                //         expiresIn: 31556926 // 1 year in seconds
+                //     },
+                //     (err, token) => {
+                //         res.json({
+                //             success: true,
+                //             token: "Bearer " + token
+                //         });
+                //     }
+                // );
+                const { name, id, email, DOB, instrumentMain, otherInstrument, genre, jam } = user;
+                res.json({ name, id, email, DOB, instrumentMain, otherInstrument, genre, jam })
             } else {
                 return res
                     .status(400)

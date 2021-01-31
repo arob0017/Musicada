@@ -23,11 +23,11 @@ const UserSchema = new Schema({
         trim: true,
     },
     otherInstrument: {
-        type: String,
+        type: [String],
         trim: true,
     },
     genre: {
-        type: String,
+        type: [String],
         trim: true,
     },
     date: {

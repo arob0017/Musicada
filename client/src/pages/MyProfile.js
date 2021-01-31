@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react';
 import { useUserContext } from '../components/UserContext'
 import { Card, CardContent, CardMedia, Grid, Typography } from '@material-ui/core';
 
-
 import "../components/style.css"
 
 function ProfileTab() {
@@ -10,6 +9,7 @@ function ProfileTab() {
     console.log(user);
     return (
         <>
+            <p><a href={`mailto:${user.email}`}>{user.email}</a></p>
             <Grid container item xs={12} justify="center">
                 <div key={user.email}>
                     <Card className="root" >
@@ -26,14 +26,18 @@ function ProfileTab() {
                                         {user.name}: {user.instrumentMain}
                                     </Typography>
                                     <Typography variant="subtitle3" color="textSecondary">
-                                        <a href='mailto:{user.email}'>{user.email}</a> - {user.DOB}
+                                        {/* <a href={backtickmailto:{user.email}backtick}>{user.email}</a> - {user.DOB} */}
                                     </Typography>
                                     <Typography component="h5" variant="h6">
                                         Also can play:
                                     </Typography>
-                                    <Typography component="h5" variant="h6">
-                                        {user.otherInstrument}
-                                    </Typography>
+                                    {user.otherInstrument.map(instrument => (
+
+                                        <Typography component="h5" variant="h6">
+                                            {instrument}
+                                        </Typography>
+                                    ))}
+
                                     <Typography component="h5" variant="h6">
                                         Fave genres to play:
                                     </Typography>
