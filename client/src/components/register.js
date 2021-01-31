@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { useUserContext } from './UserContext'
-import { Button, Card, CardActionArea, CardActions, CardContent, Container, Grid, Select, TextField, Typography } from '@material-ui/core';
+import { Accordion, AccordionSummary, AccordionDetails, Button, Card, CardActionArea, CardActions, CardContent, Container, Divider, Grid, TextField, Typography } from '@material-ui/core';
 import 'fontsource-roboto';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AddIcon from '@material-ui/icons/Add';
 
 import API from "../utils/API";
 
@@ -18,8 +20,8 @@ const Register = withRouter((props) => {
         instrumentMain: "",
         otherInstrument: "",
         genre: "",
-        jam: ["yes", "no"],
-        band: ["Find a Band", "Recruit for a Band"],
+        // jam: ["yes", "no"],
+        // band: ["Find a Band", "Recruit for a Band"],
 
 
         errors: {},
@@ -43,8 +45,8 @@ const Register = withRouter((props) => {
             instrumentMain: state.instrumentMain,
             otherInstrument: state.otherInstrument,
             genre: state.genre,
-            jam: state.jam,
-            band: state.band,
+            // jam: state.jam,
+            // band: state.band,
         };
         console.log(newUser);
 
@@ -146,36 +148,70 @@ const Register = withRouter((props) => {
                                     />
                                 </Grid>
 
-                                <Grid item xs={6}>
-                                    <Typography htmlFor="instrumentOther" variant="h5" component="p">Other instruments:</Typography>
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField
-                                        onChange={onChange}
-                                        value={state.otherInstrument}
-                                        error={errors.otherInstrument}
-                                        id="otherInstrument"
-                                        type="text"
-                                        placeholder="guitar"
-                                    />
+                                <Divider />
+
+                                <Grid item xs={12}>
+                                    <Accordion elevation={0}>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Grid item xs={6}>
+                                                <Typography htmlFor="instrumentOther" variant="h5" component="p">Other instruments:</Typography>
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <TextField
+                                                    onChange={onChange}
+                                                    value={state.otherInstrument}
+                                                    error={errors.otherInstrument}
+                                                    id="otherInstrument"
+                                                    type="text"
+                                                    placeholder="guitar"
+                                                />
+                                                <Button><AddIcon /></Button>
+                                            </Grid>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography>
+                                                Other added instruments to go here
+                                        </Typography>
+                                        </AccordionDetails>
+                                    </Accordion>
                                 </Grid>
 
-                                <Grid item xs={6}>
-                                    <Typography htmlFor="genre" variant="h5" component="p">Favourite genres to play:</Typography>
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField
-                                        onChange={onChange}
-                                        value={state.genre}
-                                        error={errors.genre}
-                                        id="genre"
-                                        type="text"
-                                        placeholder="jazz"
-                                    />
+                                <Grid item xs={12}>
+                                    <Accordion elevation={0}>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Grid item xs={6}>
+                                                <Typography htmlFor="instrumentOther" variant="h5" component="p">Favourite genres to play:</Typography>
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <TextField
+                                                    onChange={onChange}
+                                                    value={state.genre}
+                                                    error={errors.genre}
+                                                    id="genre"
+                                                    type="text"
+                                                    placeholder="jazz"
+                                                />
+                                                <Button><AddIcon /></Button>
+                                            </Grid>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography>
+                                                Added genres to go here
+                                        </Typography>
+                                        </AccordionDetails>
+                                    </Accordion>
                                 </Grid>
 
 
-                                <Grid item xs={6}>
+                                {/* <Grid item xs={6}>
                                     <Typography htmlFor="instrumentOther" variant="h5" component="p">Are you looking to Jam?</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
@@ -208,7 +244,7 @@ const Register = withRouter((props) => {
                                         <option value={0}>Find a Band</option>
                                         <option value={1}>Recruit members for a band</option>
                                     </Select>
-                                </Grid>
+                                </Grid> */}
                             </Grid>
                         </CardContent>
                     </CardActionArea>
@@ -222,5 +258,8 @@ const Register = withRouter((props) => {
     );
 })
 export default Register;
+
+
+
 
 

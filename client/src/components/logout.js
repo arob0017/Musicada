@@ -1,13 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@material-ui/core';
 
+import musicBand from "../assets/musicBand.png";
+import "./style.css";
 function Logout() {
 
     return (
-        <div>
-            <h1>You have logged out</h1>
-            <Link to="/">To log back in click this link</Link>
-        </div>
+        <Grid item xs={12} justify="center">
+            <Card align="center" className="logoutCard">
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        alt="Music Band"
+                        image={musicBand}
+                        title="Music Band"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Come Back Soon
+                    </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        </Grid>
     )
 
 }

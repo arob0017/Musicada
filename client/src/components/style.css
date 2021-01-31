@@ -1,7 +1,3 @@
-/* Top Nav Not User */
-.MuiButton-label {
-    color: white;
-}
 .MuiContainer-root {
     padding-top: 60px;
 }
@@ -36,4 +32,21 @@ footer {
 .root {
     display: 'flex';
     width: 1000px;
+}
+.logoutCard {
+    margin-top: 60px;
+    max-width: 500px !important;
+    min-height: 200px !important;
+    padding: 30px !important;    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Register */
+.MuiAccordion-root:before {
+    height: 0px !important;
+}
+.addIcon {
+    color: black;
 }
