@@ -1,3 +1,10 @@
+/* Top Nav Not User */
+.MuiButton-label {
+    color: white;
+}
+.MuiContainer-root {
+    padding-top: 60px;
+}
 /* Bottom navigation */
 footer {
     position: fixed;

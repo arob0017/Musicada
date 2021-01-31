@@ -32,7 +32,8 @@ router.post("/register", (req, res) => {
                 password: req.body.password,
                 instrumentMain: req.body.instrumentMain,
                 otherInstrument: req.body.otherInstrument,
-                genre: req.body.genre
+                genre: req.body.genre,
+                jam: req.body.jam
             });
             // Hash password before saving in database
             bcrypt.genSalt(10, (err, salt) => {
@@ -41,7 +42,7 @@ router.post("/register", (req, res) => {
                     newUser.password = hash;
                     newUser
                         .save()
-                        .then(({ name, id, email, DOB, instrumentMain, otherInstrument, genre }) => res.json({ name, id, email, DOB, instrumentMain, otherInstrument, genre }))
+                        .then(({ name, id, email, DOB, instrumentMain, otherInstrument, genre, jam }) => res.json({ name, id, email, DOB, instrumentMain, otherInstrument, genre, jam }))
                         .catch(err => console.log(err));
                 });
             });

@@ -6,6 +6,10 @@ export default {
     },
     register: (userData) => {
         return axios.post("/api/users/register", userData)
+    },
+    logout: (userData) => {
+        return axios.post("/api/logout", userData);
     }
+
 }
 

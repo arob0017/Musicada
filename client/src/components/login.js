@@ -39,11 +39,8 @@ const Login = withRouter((props) => {
     const { errors } = state;
     return (
         <Container maxWidth="sm">
-            <Link to="/">
-                <i className="material-icons left">keyboard_backspace</i> Back to home
-                </Link>
-            <Typography variant="h2">Login</Typography>
-            <Card elevation={3}>
+            {/* <Typography variant="h2" align="center">Login</Typography> */}
+            <Card elevation={3} clasName="notUserCard">
                 <form noValidate onSubmit={onSubmit}>
                     <CardActionArea>
                         <CardContent>

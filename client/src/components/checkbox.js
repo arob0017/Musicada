@@ -1,43 +1,55 @@
 import React from 'react';
-import Checkbox from '@material-ui/core/Checkbox';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
-export default function Checkboxes() {
-    const [checked, setChecked] = React.useState(true);
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+}));
+
+export default function NativeSelects() {
+    const classes = useStyles();
+    const [state, setState] = React.useState({
+        age: '',
+        name: 'hai',
+    });
 
     const handleChange = (event) => {
-        setChecked(event.target.checked);
+        const name = event.target.name;
+        setState({
+            ...state,
+            [name]: event.target.value,
+        });
     };
 
     return (
         <div>
-            <Checkbox
-                checked={checked}
-                onChange={handleChange}
-                inputProps={{ 'aria-label': 'primary checkbox' }}
-            />
-            <Checkbox
-                defaultChecked
-                color="primary"
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-            />
-            <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} />
-            <Checkbox disabled inputProps={{ 'aria-label': 'disabled checkbox' }} />
-            <Checkbox disabled checked inputProps={{ 'aria-label': 'disabled checked checkbox' }} />
-            <Checkbox
-                defaultChecked
-                indeterminate
-                inputProps={{ 'aria-label': 'indeterminate checkbox' }}
-            />
-            <Checkbox
-                defaultChecked
-                color="default"
-                inputProps={{ 'aria-label': 'checkbox with default color' }}
-            />
-            <Checkbox
-                defaultChecked
-                size="small"
-                inputProps={{ 'aria-label': 'checkbox with small size' }}
-            />
+            <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="age-native-simple">Age</InputLabel>
+                <Select
+                    native
+                    value={state.jam}
+                    onChange={handleChange}
+                    inputProps={{
+                        name: 'age',
+                        id: 'age-native-simple',
+                    }}
+                >
+                    <option aria-label="None" value="" />
+                    <option value={10}>Ten</option>
+                    <option value={20}>Twenty</option>
+                    <option value={30}>Thirty</option>
+                </Select>
+            </FormControl>
         </div>
-    );
+    )
 }

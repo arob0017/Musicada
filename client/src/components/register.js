@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { useUserContext } from './UserContext'
-import { Button, Card, CardActionArea, CardActions, CardContent, Container, Grid, TextField, Typography } from '@material-ui/core';
+import { Button, Card, CardActionArea, CardActions, CardContent, Container, Grid, Select, TextField, Typography } from '@material-ui/core';
 import 'fontsource-roboto';
 
 import API from "../utils/API";
 
+
 const Register = withRouter((props) => {
+
     const [state, setState] = useState({
         name: "",
         email: "",
@@ -16,9 +18,8 @@ const Register = withRouter((props) => {
         instrumentMain: "",
         otherInstrument: "",
         genre: "",
-        // jam: true,
-        // bandFind: true,
-        // bandRecruit: true,
+        jam: ["yes", "no"],
+        band: ["Find a Band", "Recruit for a Band"],
 
 
         errors: {},
@@ -42,9 +43,8 @@ const Register = withRouter((props) => {
             instrumentMain: state.instrumentMain,
             otherInstrument: state.otherInstrument,
             genre: state.genre,
-            // jam: state.jam,
-            // bandFind: state.bandFind,
-            // bandRecruit: state.bandRecruit,
+            jam: state.jam,
+            band: state.band,
         };
         console.log(newUser);
 
@@ -58,14 +58,6 @@ const Register = withRouter((props) => {
     const { errors } = state;
     return (
         <Container>
-
-            <Link to="/">
-                <i className="material-icons left">keyboard_backspace</i> Back to home
-                </Link>
-
-            <Typography variant="h2">Register</Typography>
-
-
             <Card elevation={3}>
                 <form noValidate onSubmit={onSubmit}>
                     <CardActionArea>
@@ -182,49 +174,41 @@ const Register = withRouter((props) => {
                                     />
                                 </Grid>
 
-                                {/* <Grid item xs={6}>
-                                        <Typography htmlFor="instrumentOther" variant="h5" component="p">Are you looking to:</Typography>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Grid item xs={3}>
-                                            <Typography htmlFor="instrumentOther" component="p">Jam:</Typography>
-                                        </Grid>
-                                        <Grid item xs={3}>
-                                            <Checkbox
-                                                onChange={onChange}
-                                                inputProps={{ 'aria-label': 'primary checkbox' }}
-                                                value={state.jam}
-                                                error={errors.jam}
-                                            />
-                                        </Grid>
 
-                                        <Grid item xs={6}>
-                                            <Typography htmlFor="instrumentOther" component="p">Find A Band:</Typography>
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <Checkbox
-                                                // checked={checked}
-                                                onChange={onChange}
-                                                inputProps={{ 'aria-label': 'primary checkbox' }}
-                                                value={state.bandFind}
-                                                error={errors.bandFind}
-                                            />
-                                        </Grid>
-
-                                        <Grid item xs={6}>
-                                            <Typography htmlFor="instrumentOther" component="p">Recruit Members for your Band:</Typography>
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <Checkbox
-                                                // checked={checked}
-                                                onChange={onChange}
-                                                inputProps={{ 'aria-label': 'primary checkbox' }}
-                                                value={state.bandRecruit}
-                                                error={errors.bandRecruit}
-                                            />
-                                        </Grid> */}
-
-                                {/* </Grid> */}
+                                <Grid item xs={6}>
+                                    <Typography htmlFor="instrumentOther" variant="h5" component="p">Are you looking to Jam?</Typography>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Select
+                                        native
+                                        value={state.jam}
+                                        onChange={onchange}
+                                    // inputProps={{
+                                    //     name: 'age',
+                                    //     id: 'age-native-simple',
+                                    // }}
+                                    >
+                                        <option value={0}>Yes</option>
+                                        <option value={1}>No</option>
+                                    </Select>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Typography htmlFor="instrumentOther" variant="h5" component="p">Find a band, or recruit members?</Typography>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Select
+                                        native
+                                        value={state.band}
+                                        onChange={onchange}
+                                    // inputProps={{
+                                    //     name: 'age',
+                                    //     id: 'age-native-simple',
+                                    // }}
+                                    >
+                                        <option value={0}>Find a Band</option>
+                                        <option value={1}>Recruit members for a band</option>
+                                    </Select>
+                                </Grid>
                             </Grid>
                         </CardContent>
                     </CardActionArea>
@@ -234,7 +218,7 @@ const Register = withRouter((props) => {
                     </CardActions>
                 </form>
             </Card>
-        </Container>
+        </Container >
     );
 })
 export default Register;

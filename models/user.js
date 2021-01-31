@@ -34,18 +34,15 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    // jamming: {
-    //     type: String
-    // },
-    // jam: {
-    //     type: Boolean,
-    // },
-    // bandFind: {
-    //     type: Boolean,
-    // },
-    // bandRecruit: {
-    //     type: Boolean,
-    // }
+
+    jam: {
+        type: String,
+        enum: ["yes", "no"]
+    },
+    band: {
+        type: String,
+        enum: ["Find a Band", "Recruit for a Band"]
+    },
 });
 const User = mongoose.model("users", UserSchema);
 module.exports = User;
