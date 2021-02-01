@@ -23,6 +23,7 @@ const Register = withRouter((props) => {
         // jam: ["yes", "no"],
         // band: ["Find a Band", "Recruit for a Band"],
         otherInstruments: [],
+        genres: [],
 
         errors: {},
         redirect: false
@@ -44,7 +45,7 @@ const Register = withRouter((props) => {
             password2: state.password2,
             instrumentMain: state.instrumentMain,
             otherInstrument: state.otherInstruments,
-            genre: state.genre,
+            genre: state.genres,
             // jam: state.jam,
             // band: state.band,
         };
@@ -57,8 +58,11 @@ const Register = withRouter((props) => {
             props.history.push("/")
         })
     }
-    const addInstrument = e => {
+    const addInstrument = () => {
         setState({ ...state, otherInstruments: [...state.otherInstruments, state.otherInstrument] });
+    }
+    const addGenre = () => {
+        setState({ ...state, genres: [...state.genres, state.genre] });
     }
     const { errors } = state;
     return (
@@ -193,7 +197,7 @@ const Register = withRouter((props) => {
                                             id="panel1a-header"
                                         > */}
                                 <Grid item xs={6}>
-                                    <Typography htmlFor="instrumentOther" variant="h5" component="p">Favourite genres to play:</Typography>
+                                    <Typography htmlFor="genre" variant="h5" component="p">Favourite genres to play:</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
                                     <TextField
@@ -204,14 +208,17 @@ const Register = withRouter((props) => {
                                         type="text"
                                         placeholder="jazz"
                                     />
-                                    <Button variant="contained" color="primary"><AddIcon /></Button>
+                                    <Button variant="contained" color="primary" onClick={addGenre}><AddIcon /></Button>
                                 </Grid>
-                                {/* </AccordionSummary>
-                                        <AccordionDetails>
-                                            <Typography>
-                                                Added genres to go here
-                                        </Typography>
-                                        </AccordionDetails>
+                                {/* {/* </AccordionSummary>
+                                        <AccordionDetails> */}
+                                {state.genres.map(newGenre => (
+
+                                    <Typography>
+                                        {newGenre}
+                                    </Typography>
+                                ))}
+                                {/* </AccordionDetails>
                                     </Accordion> */}
                             </Grid>
 

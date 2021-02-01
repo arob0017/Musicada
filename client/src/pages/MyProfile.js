@@ -9,7 +9,6 @@ function ProfileTab() {
     console.log(user);
     return (
         <>
-            <p><a href={`mailto:${user.email}`}>{user.email}</a></p>
             <Grid container item xs={12} justify="center">
                 <div key={user.email}>
                     <Card className="root" >
@@ -26,7 +25,7 @@ function ProfileTab() {
                                         {user.name}: {user.instrumentMain}
                                     </Typography>
                                     <Typography variant="subtitle3" color="textSecondary">
-                                        {/* <a href={backtickmailto:{user.email}backtick}>{user.email}</a> - {user.DOB} */}
+                                        <a href={`mailto:${user.email}`}>{user.email}</a> - {user.DOB}
                                     </Typography>
                                     <Typography component="h5" variant="h6">
                                         Also can play:
@@ -41,9 +40,12 @@ function ProfileTab() {
                                     <Typography component="h5" variant="h6">
                                         Fave genres to play:
                                     </Typography>
-                                    <Typography component="h5" variant="h6">
-                                        {user.genre}
-                                    </Typography>
+                                    {user.genre.map(newGenre => (
+
+                                        <Typography component="h5" variant="h6">
+                                            {newGenre}
+                                        </Typography>
+                                    ))}
                                 </Grid>
                             </Grid>
                         </CardContent>
