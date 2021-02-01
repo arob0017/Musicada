@@ -31,22 +31,25 @@ function ProfileTab() {
                                     <Typography component="h5" variant="h6">
                                         Fave genres to play:
                                     </Typography>
-                                    {user.genre.map(newGenre => (
-
-                                        <Typography component="p" variant="p" className="togetherRight">
-                                            {newGenre}&#160;-&#160;
-                                        </Typography>
-                                    ))}
+                                    <div className="togetherCenter">
+                                        {user.genre.map(newGenre => (
+                                            <Typography component="p" variant="p" className="togetherLine">
+                                                {newGenre}&#160;-&#160;
+                                            </Typography>
+                                        ))}
+                                    </div>
                                     <br></br>
                                     <Typography component="h5" variant="h6">
                                         Other Instruments that {user.name} can play:
                                             </Typography>
-                                    {user.otherInstrument.map(instrument => (
+                                    <div className="togetherCenter">
+                                        {user.otherInstrument.map(instrument => (
 
-                                        <Typography component="p" variant="p" className="togetherRight">
-                                            {instrument}&#160;-&#160;
-                                        </Typography>
-                                    ))}
+                                            <Typography component="p" variant="p" className="togetherLine">
+                                                {instrument}&#160;-&#160;
+                                            </Typography>
+                                        ))}
+                                    </div>
                                 </Grid>
                             </Grid>
                         </CardContent>

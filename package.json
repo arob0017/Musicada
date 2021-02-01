@@ -9,21 +9,21 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "name": "projectthree",
+  "name": "musicada",
   "description": "",
   "version": "1.0.0",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arob0017/Project3.git"
+    "url": "git+https://github.com/arob0017/Musicada.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/arob0017/ProjectThree/issues"
+    "url": "https://github.com/arob0017/Musicada/issues"
   },
-  "homepage": "https://github.com/arob0017/ProjectThree#readme",
+  "homepage": "https://github.com/arob0017/Musicada#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "axios": "^0.21.1",

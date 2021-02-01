@@ -47,10 +47,10 @@ function JamminTab() {
     return (
         <>
             <div>
-                {users.map((user) =>
-                    <div key={user.email}>
-                        <Grid item xs={4} justify="center">
-                            <div className="jamminCardAll">
+                <div className="jamminCardAll">
+                    {users.map((user) =>
+                        <div key={user.email}>
+                            <Grid item xs={4} >
                                 <Card className="jamminCard">
                                     <CardContent>
                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -62,31 +62,35 @@ function JamminTab() {
                                         <Typography className={classes.pos} color="textSecondary">
                                             {user.instrumentMain}
                                         </Typography>
-                                        <Typography component="p" variant="p">
+                                        <Typography component="p" variant="p" className="jamminBold">
                                             Fave genres to play:
-                                        </Typography>
-                                        {user.genre.map(newGenre => (
-                                            <Typography variant="p" component="p" className="togetherRight">
-                                                {newGenre} &#160;-&#160;
-                                            </Typography>
-                                        ))}
+                                    </Typography>
+                                        <div className="togetherCenter">
+                                            {user.genre.map(newGenre => (
+                                                <Typography variant="p" component="p" className="togetherLine">
+                                                    {newGenre} &#160;-&#160;
+                                                </Typography>
+                                            ))}
+                                        </div>
                                         <br></br>
-                                        <Typography component="p" variant="p">
+                                        <Typography component="p" variant="p" className="jamminBold">
                                             Also can play:
-                                        </Typography>
-                                        {user.otherInstrument.map(instrument => (
-                                            <div className="togetherCenter">
-                                                <Typography component="p" variant="p" className="togetherRight">
-                                                    {instrument}&#160;-&#160;
-                                            </Typography>
-                                            </div>
-                                        ))}
+                                    </Typography>
+                                        <div className="togetherCenter">
+                                            {user.otherInstrument.map(instrument => (
+                                                <div className="togetherCenter">
+                                                    <Typography component="p" variant="p" className="togetherLine">
+                                                        {instrument}&#160;-&#160;
+                                                </Typography>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </CardContent>
                                 </Card>
-                            </div>
-                        </Grid>
-                    </div>
-                )}
+                            </Grid>
+                        </div>
+                    )}
+                </div>
             </div>
         </>
     )
