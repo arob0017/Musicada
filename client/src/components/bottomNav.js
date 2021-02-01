@@ -10,6 +10,7 @@ import AudiotrackIcon from '@material-ui/icons/Audiotrack';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
+import CreateIcon from '@material-ui/icons/Create';
 
 import './style.css';
 
@@ -17,6 +18,7 @@ import FavoriteTab from "../pages/Favorites";
 import JamminTab from "../pages/Jammin";
 import NightOutTab from '../pages/NightOut';
 import ProfileTab from "../pages/MyProfile";
+import EditUser from '../pages/EditUser';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -75,6 +77,8 @@ export default function NavBottom() {
                         <Tab icon={<FavoriteIcon />} label="FAVORITES" {...a11yProps(1)} />
                         <Tab icon={<LocationCityIcon />} label="Night Out" {...a11yProps(2)} />
                         <Tab icon={<PersonPinIcon />} label="My Profile" {...a11yProps(3)} />
+                        <Tab icon={<CreateIcon />} label="Edit Details" {...a11yProps(4)} />
+
                     </Tabs>
                 </Paper>
             </footer>
@@ -90,6 +94,9 @@ export default function NavBottom() {
                 </TabPanel>
                 <TabPanel value={value} index={3}>
                     <ProfileTab />
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                    <EditUser />
                 </TabPanel>
                 <div className="push"></div>
             </div>
