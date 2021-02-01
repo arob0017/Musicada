@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { useUserContext } from '../components/UserContext'
-import { Card, CardContent, CardMedia, Grid, Typography } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Container, Grid, Typography } from '@material-ui/core';
 
 import "../components/style.css"
 
@@ -9,54 +9,48 @@ function ProfileTab() {
     console.log(user);
     return (
         <>
-            <Grid container item xs={12} justify="center">
+            <Container align="center">
                 <div key={user.email}>
                     <Card className="root" >
                         <CardContent className="content">
-                            <Grid container spacing={3}>
-                                <Grid item xs={5}>
-                                    <CardMedia href="https://placeholder.com">
-                                        <img src="https://via.placeholder.com/400" alt="profile" />
-                                    </CardMedia>
-                                </Grid>
+                            <Typography component="h3" variant="h3">
+                                {user.name}: {user.instrumentMain}
+                            </Typography>
+                            <Typography variant="subtitle3" color="textSecondary">
+                                <a href={`mailto:${user.email}`}>{user.email}</a> - {user.DOB}
+                            </Typography>
+                            <CardMedia href="https://placeholder.com" className="placeholerImage">
+                                <img src="https://via.placeholder.com/400" alt="profile" />
+                            </CardMedia>
 
-                                <Grid item xs={7} align="center">
-                                    <Typography component="h3" variant="h3">
-                                        {user.name}: {user.instrumentMain}
-                                    </Typography>
-                                    <Typography variant="subtitle3" color="textSecondary">
-                                        <a href={`mailto:${user.email}`}>{user.email}</a> - {user.DOB}
-                                    </Typography>
 
-                                    <Typography component="h5" variant="h6">
-                                        Fave genres to play:
+                            <Typography component="h5" variant="h6">
+                                Fave genres to play:
                                     </Typography>
-                                    <div className="togetherCenter">
-                                        {user.genre.map(newGenre => (
-                                            <Typography component="p" variant="p" className="togetherLine">
-                                                {newGenre}&#160;-&#160;
+                            <div className="togetherCenter">
+                                {user.genre.map(newGenre => (
+                                    <Typography component="p" variant="p" className="togetherLine">
+                                        {newGenre}&#160;-&#160;
+                                    </Typography>
+                                ))}
+                            </div>
+                            <br></br>
+                            <Typography component="h5" variant="h6">
+                                Other Instruments that {user.name} can play:
                                             </Typography>
-                                        ))}
-                                    </div>
-                                    <br></br>
-                                    <Typography component="h5" variant="h6">
-                                        Other Instruments that {user.name} can play:
-                                            </Typography>
-                                    <div className="togetherCenter">
-                                        {user.otherInstrument.map(instrument => (
+                            <div className="togetherCenter">
+                                {user.otherInstrument.map(instrument => (
 
-                                            <Typography component="p" variant="p" className="togetherLine">
-                                                {instrument}&#160;-&#160;
-                                            </Typography>
-                                        ))}
-                                    </div>
-                                </Grid>
-                            </Grid>
+                                    <Typography component="p" variant="p" className="togetherLine">
+                                        {instrument}&#160;-&#160;
+                                    </Typography>
+                                ))}
+                            </div>
                         </CardContent>
 
                     </Card>
                 </div>
-            </Grid>
+            </Container>
         </>
     )
 }
