@@ -28,7 +28,7 @@ export default function NavBar() {
                     <Typography variant="h2" className={classes.title}>
                         Musicada
                     </Typography>
-                    <Button className="loginButton" variant="outlined" href="/logout" >Logout</Button>
+                    <Button className="loginButton" href="/logout" >Logout</Button>
                 </Toolbar>
             </AppBar>
         </div>

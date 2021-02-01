@@ -42,28 +42,26 @@ const Login = withRouter((props) => {
             {/* <Typography variant="h2" align="center">Login</Typography> */}
             <Card elevation={3} className="notUserCard">
                 <form noValidate onSubmit={onSubmit}>
-                    <CardActionArea>
-                        <CardContent>
-                            <Typography htmlFor="email" variant="h5" component="p">Email</Typography>
-                            <TextField
-                                onChange={onChange}
-                                value={state.email}
-                                error={errors.email}
-                                id="email"
-                                type="email"
-                                placeholder="email@example.com"
-                            />
+                    <CardContent>
+                        <Typography htmlFor="email" variant="h5" component="p">Email</Typography>
+                        <TextField
+                            onChange={onChange}
+                            value={state.email}
+                            error={errors.email}
+                            id="email"
+                            type="email"
+                            placeholder="email@example.com"
+                        />
 
-                            <Typography htmlFor="password" variant="h5" component="p">Password</Typography>
-                            <TextField
-                                onChange={onChange}
-                                value={state.password}
-                                error={errors.password}
-                                id="password"
-                                type="password"
-                            />
-                        </CardContent>
-                    </CardActionArea>
+                        <Typography htmlFor="password" variant="h5" component="p">Password</Typography>
+                        <TextField
+                            onChange={onChange}
+                            value={state.password}
+                            error={errors.password}
+                            id="password"
+                            type="password"
+                        />
+                    </CardContent>
                     <CardActions>
                         <Button type="submit" variant="contained" color="primary" className="themeColor">Login</Button>
                         <Typography component="p"> Don't have an account? <Link to="/register">Register</Link></Typography>

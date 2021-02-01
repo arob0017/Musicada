@@ -8,19 +8,17 @@ function Logout() {
     return (
         <Grid item xs={12} justify="center">
             <Card align="center" className="logoutCard">
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        alt="Music Band"
-                        image={musicBand}
-                        title="Music Band"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            Come Back Soon
+                <CardMedia
+                    component="img"
+                    alt="Music Band"
+                    image={musicBand}
+                    title="Music Band"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                        Come Back Soon
                     </Typography>
-                    </CardContent>
-                </CardActionArea>
+                </CardContent>
             </Card>
         </Grid>
     )
