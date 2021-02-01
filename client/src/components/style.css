@@ -17,7 +17,7 @@ footer {
 }
 
 /* Primary Theme Colour */
-.MuiAppBar-colorPrimary, .themeColor {
+.MuiAppBar-colorPrimary, .themeColor, .MuiButton-containedPrimary {
     background-color: #8540d0 !important;
 }
 
@@ -32,6 +32,7 @@ footer {
 .root {
     display: 'flex';
     max-width: 1000px;
+    margin-top: -40px;
 }
 .logoutCard {
     margin-top: 60px;
@@ -86,4 +87,7 @@ footer {
         display: 'flex';
         /* max-width: 900px; */
     }
+}
+.Soon {
+    text-align: center;
 }

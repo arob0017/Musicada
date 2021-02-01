@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 
 import API from "../utils/API";
-
+import "./style.css"
 
 const Register = withRouter((props) => {
 
@@ -156,71 +156,54 @@ const Register = withRouter((props) => {
 
                             <Divider />
 
+
+                            <Grid item xs={6}>
+                                <Typography htmlFor="instrumentOther" variant="h5" component="p">Other instruments:</Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    onChange={onChange}
+                                    value={state.otherInstrument}
+                                    error={errors.otherInstrument}
+                                    id="otherInstrument"
+                                    type="text"
+                                    placeholder="guitar"
+                                />
+                                <Button variant="contained" color="primary" onClick={addInstrument}><AddIcon /></Button>
+                            </Grid>
                             <Grid item xs={12}>
-                                {/* <Accordion elevation={0}>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls="panel1a-content"
-                                            id="panel1a-header"
-                                        > */}
-                                <Grid item xs={6}>
-                                    <Typography htmlFor="instrumentOther" variant="h5" component="p">Other instruments:</Typography>
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField
-                                        onChange={onChange}
-                                        value={state.otherInstrument}
-                                        error={errors.otherInstrument}
-                                        id="otherInstrument"
-                                        type="text"
-                                        placeholder="guitar"
-                                    />
-                                    <Button variant="contained" color="primary" onClick={addInstrument}>Add</Button>
-                                </Grid>
-                                {/* </AccordionSummary>
-                                        <AccordionDetails> */}
                                 {state.otherInstruments.map(instrument => (
 
                                     <Typography>
                                         {instrument}
                                     </Typography>
                                 ))}
-                                {/* </AccordionDetails> */}
-                                {/* </Accordion> */}
                             </Grid>
-
+                            <br></br>
+                            <Grid item xs={6}>
+                                <Typography htmlFor="genre" variant="h5" component="p">Favourite genres to play:</Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    onChange={onChange}
+                                    value={state.genre}
+                                    error={errors.genre}
+                                    id="genre"
+                                    type="text"
+                                    placeholder="jazz"
+                                />
+                                <Button variant="contained" color="primary" onClick={addGenre}><AddIcon /></Button>
+                            </Grid>
+                            <br></br>
                             <Grid item xs={12}>
-                                {/* <Accordion elevation={0}>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls="panel1a-content"
-                                            id="panel1a-header"
-                                        > */}
-                                <Grid item xs={6}>
-                                    <Typography htmlFor="genre" variant="h5" component="p">Favourite genres to play:</Typography>
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField
-                                        onChange={onChange}
-                                        value={state.genre}
-                                        error={errors.genre}
-                                        id="genre"
-                                        type="text"
-                                        placeholder="jazz"
-                                    />
-                                    <Button variant="contained" color="primary" onClick={addGenre}><AddIcon /></Button>
-                                </Grid>
-                                {/* {/* </AccordionSummary>
-                                        <AccordionDetails> */}
                                 {state.genres.map(newGenre => (
 
                                     <Typography>
                                         {newGenre}
                                     </Typography>
                                 ))}
-                                {/* </AccordionDetails>
-                                    </Accordion> */}
                             </Grid>
+
 
 
                             {/* <Grid item xs={6}>

@@ -6,7 +6,7 @@ class NightOutTab extends Component {
     render() {
 
         return (
-            <h1>Night Out tab</h1>
+            <h1 className="Soon">Night Out coming soon</h1>
         );
     }
 }

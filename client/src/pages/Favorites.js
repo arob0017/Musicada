@@ -6,7 +6,7 @@ class FavoritesTab extends Component {
     render() {
 
         return (
-            <h1>Favourites tab</h1>
+            <h1 className="Soon">Favourites coming soon</h1>
         );
     }
 }
