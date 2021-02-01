@@ -50,3 +50,25 @@ footer {
 .addIcon {
     color: black;
 }
+
+/* Jammin */
+.togetherRight {
+    float: left;
+}
+.togetherCenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jamminCard {
+    padding: 16px;
+    text-align: center !important;
+    min-width: 275px;
+
+}
+  
+.jamminCardAll {
+    display: flex;
+    flex-direction: row;
+}

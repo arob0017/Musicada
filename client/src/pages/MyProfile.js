@@ -27,23 +27,24 @@ function ProfileTab() {
                                     <Typography variant="subtitle3" color="textSecondary">
                                         <a href={`mailto:${user.email}`}>{user.email}</a> - {user.DOB}
                                     </Typography>
-                                    <Typography component="h5" variant="h6">
-                                        Also can play:
-                                    </Typography>
-                                    {user.otherInstrument.map(instrument => (
-
-                                        <Typography component="h5" variant="h6">
-                                            {instrument}
-                                        </Typography>
-                                    ))}
 
                                     <Typography component="h5" variant="h6">
                                         Fave genres to play:
                                     </Typography>
                                     {user.genre.map(newGenre => (
 
-                                        <Typography component="h5" variant="h6">
-                                            {newGenre}
+                                        <Typography component="p" variant="p" className="togetherRight">
+                                            {newGenre}&#160;-&#160;
+                                        </Typography>
+                                    ))}
+                                    <br></br>
+                                    <Typography component="h5" variant="h6">
+                                        Other Instruments that {user.name} can play:
+                                            </Typography>
+                                    {user.otherInstrument.map(instrument => (
+
+                                        <Typography component="p" variant="p" className="togetherRight">
+                                            {instrument}&#160;-&#160;
                                         </Typography>
                                     ))}
                                 </Grid>

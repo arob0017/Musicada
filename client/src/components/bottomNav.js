@@ -78,19 +78,21 @@ export default function NavBottom() {
                     </Tabs>
                 </Paper>
             </footer>
-            <TabPanel value={value} index={0}>
-                <JamminTab />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                <FavoriteTab />
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                <NightOutTab />
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                <ProfileTab />
-            </TabPanel>
-            <div className="push"></div>
+            <div>
+                <TabPanel value={value} index={0}>
+                    <JamminTab />
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <FavoriteTab />
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    <NightOutTab />
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    <ProfileTab />
+                </TabPanel>
+                <div className="push"></div>
+            </div>
         </div>
     );
 }
