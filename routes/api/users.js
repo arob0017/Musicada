@@ -25,7 +25,7 @@ router
 
 // Matches with /api/user/genre
 router.route("/genre").post(usersController.removeGenre)
-router.route("/genre").post(usersController.addGenre)
+// router.route("/genre").post(usersController.addGenre)
 
 // Matches with /api/user/otherInstrument
 

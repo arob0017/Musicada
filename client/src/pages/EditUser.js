@@ -35,12 +35,12 @@ function EditUser() {
             .catch(err => console.log(err));
 
     }
-    function addGenre(genre) {
-        API.addGenre(userDetails.id, genre)
-            .then(res => setUserDetails({ ...userDetails, genre: userDetails.genre.filter(g => g == genre) }))
-            .catch(err => console.log(err));
+    // function addGenre(genre) {
+    //     API.addGenre(userDetails.id, genre)
+    //         .then(res => setUserDetails({ ...userDetails, genre: userDetails.genre.filter(g => g == genre) }))
+    //         .catch(err => console.log(err));
 
-    }
+    // }
     const onChange = e => {
         setUserDetails({ ...userDetails, [e.target.id]: e.target.value })
     };
@@ -148,11 +148,11 @@ function EditUser() {
                                     type="text"
                                     placeholder="jazz"
                                 />
-                                <Button variant="contained" color="primary" onClick={addGenre}><AddIcon /></Button>
+                                {/* <Button variant="contained" color="primary" onClick={addGenre}><AddIcon /></Button> */}
                             </Grid>
                             <br></br>
                             <Grid item xs={12}>
-                                {userDetails.genre.map(genre => (
+                                {userDetails?.genre.map(genre => (
                                     <div>
                                         <Typography>
                                             {genre}
