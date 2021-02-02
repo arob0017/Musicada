@@ -33,5 +33,21 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    removeGenre: async function (req, res) {
+        const user = await db.User.findOne({ _id: req.body.userId })
+        const genreToRemove = req.body.genre;
+        console.log(user)
+        db.User.findOneAndUpdate({ _id: req.body.userId }, null, {
+            genre: user.genre.filter(g => g !== genreToRemove)
+        }).then(resp => res.json(resp)).catch(err => res.status(500).json(err))
+    },
+    removeInstrument: async function (req, res) {
+        const user = await db.User.findOne({ _id: req.body.userId })
+        const instrumentToRemove = req.body.otherInstrument;
+        console.log(user)
+        db.User.findOneAndUpdate({ _id: req.body.userId }, null, {
+            otherInstrument: user.otherInstrument.filter(g => g !== instrumentToRemove)
+        }).then(resp => res.json(resp)).catch(err => res.status(500).json(err))
     }
 };

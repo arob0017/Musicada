@@ -52,8 +52,6 @@ const Register = withRouter((props) => {
         console.log(newUser);
 
         API.register(newUser).then(res => {
-
-
             setUser(res.data)
             props.history.push("/")
         })

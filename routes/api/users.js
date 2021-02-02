@@ -23,6 +23,12 @@ router
     .put(usersController.update)
     .delete(usersController.remove);
 
+// Matches with /api/user/genre
+router.route("/genre").post(usersController.removeGenre)
+
+// Matches with /api/user/otherInstrument
+
+router.route("/otherInstrument").post(usersController.removeInstrument)
 
 // @route POST api/users/register
 // @desc Register user

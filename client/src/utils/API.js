@@ -15,12 +15,18 @@ export default {
         return axios.get("/api/users");
     },
     // Gets the book with the given id
-    updateUser: function (id, userData) {
+    updateUserProfile: function (id, userData) {
         return axios.put("/api/users/" + id, userData);
     },
     // Deletes the book with the given id
-    deleteUser: function (id) {
-        return axios.delete("/api/users/" + id);
+    deleteUserData: function (id, userData) {
+        return axios.delete("/api/users/" + id, userData);
+    },
+    deleteGenre: function (userId, genre) {
+        return axios.post("/api/users/genre", { userId, genre })
+    },
+    deleteInstrument: function (userId, otherInstrument) {
+        return axios.post("/api/users/otherInstrument", { userId, otherInstrument })
     }
 }
 
