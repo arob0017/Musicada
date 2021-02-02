@@ -25,6 +25,9 @@ export default {
     deleteGenre: function (userId, genre) {
         return axios.post("/api/users/genre", { userId, genre })
     },
+    addGenre: function (userId, genre) {
+        return axios.post("/api/users/genre", { userId, genre })
+    },
     deleteInstrument: function (userId, otherInstrument) {
         return axios.post("/api/users/otherInstrument", { userId, otherInstrument })
     }

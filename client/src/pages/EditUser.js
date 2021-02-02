@@ -11,11 +11,14 @@ function EditUser() {
     const { user, setUser } = useUserContext()
     const [userDetails, setUserDetails] = useState(user)
 
-    console.log(userDetails.genres)
+    console.log("genre", userDetails.genre)
+    console.log("genres", userDetails.genres)
+
     const onSubmit = e => {
         e.preventDefault();
 
         API.updateUserProfile(userDetails.id, userDetails).then(() =>
+            console.log("Done"),
             setUser(userDetails)
         )
     }
@@ -32,16 +35,18 @@ function EditUser() {
             .catch(err => console.log(err));
 
     }
+    function addGenre(genre) {
+        API.addGenre(userDetails.id, genre)
+            .then(res => setUserDetails({ ...userDetails, genre: userDetails.genre.filter(g => g == genre) }))
+            .catch(err => console.log(err));
 
+    }
     const onChange = e => {
         setUserDetails({ ...userDetails, [e.target.id]: e.target.value })
     };
-    const addInstrument = () => {
-        setUser({ ...userDetails, otherInstruments: [...userDetails.otherInstruments, userDetails.otherInstrument] });
-    }
-    const addGenre = () => {
-        setUser({ ...userDetails, genres: [...userDetails.genres, userDetails.genre] });
-    }
+    // const addInstrument = () => {
+    //     setUserDetails({ ...userDetails, otherInstrument: [...userDetails.otherInstrument.filter(g => g !== otherInstrument)] });
+    // }
     return (
         <Container>
             <Card elevation={3}>
@@ -115,7 +120,7 @@ function EditUser() {
                                     type="text"
                                     placeholder="guitar"
                                 />
-                                <Button variant="contained" color="primary" onClick={addInstrument}><AddIcon /></Button>
+                                {/* <Button variant="contained" color="primary" onClick={addInstrument}><AddIcon /></Button> */}
                             </Grid>
                             <Grid item xs={12}>
                                 {userDetails.otherInstrument.map(instrument => (
@@ -123,7 +128,7 @@ function EditUser() {
                                         <Typography>
                                             {instrument}
                                         </Typography>
-                                        <Button onClick={() => deleteInstrument(instrument)}>Delete</Button>
+                                        <Button variant="contained" color="primary" onClick={() => deleteInstrument(instrument)}>Delete</Button>
 
                                     </div>
                                 ))}
@@ -152,7 +157,7 @@ function EditUser() {
                                         <Typography>
                                             {genre}
                                         </Typography>
-                                        <Button onClick={() => deleteGenre(genre)}>Delete</Button>
+                                        <Button variant="contained" color="primary" onClick={() => deleteGenre(genre)}>Delete</Button>
                                     </div>
                                 ))}
                             </Grid>

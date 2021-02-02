@@ -49,5 +49,12 @@ module.exports = {
         db.User.findOneAndUpdate({ _id: req.body.userId }, null, {
             otherInstrument: user.otherInstrument.filter(g => g !== instrumentToRemove)
         }).then(resp => res.json(resp)).catch(err => res.status(500).json(err))
-    }
+    },
+    addGenre: async function (req, res) {
+        const user = await db.User.findOne({ _id: req.body.userId })
+        const genreToAdd = req.body.genre;
+        db.User.findOneAndUpdate({ _id: req.body.userId }, null, {
+            genre: user.genre.filter(g => g == genreToAdd)
+        }).then(resp => res.json(resp)).catch(err => res.status(500).json(err))
+    },
 };
